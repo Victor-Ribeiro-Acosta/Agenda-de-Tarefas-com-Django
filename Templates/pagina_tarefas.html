@@ -1,0 +1,38 @@
+
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>pagina de tarefas</title>
+    </head>
+
+    <body>
+
+        <h2>Registrar tarefas</h2>
+
+        <form action = 'submit' method = 'POST'>  {% csrf_token %}
+            <input type = 'number' name = 'id_tarefa' value = "{{tarefa.id}}" hidden >
+            <label>Título</label>
+            <br>
+            <input type = 'text' name = 'titulo' size = "23" value = "{{ tarefa.titulo }}">
+            <br>
+
+            <label>Data da Atividade</label>
+            <br>
+            <input type = 'date' name = 'data_atividade' size = "23" value = "{{tarefa.input_data_editada}}">
+            <br>
+
+            <label>Descrição</label>
+            <br>
+            <textarea name = 'descrição' rows = "5" cols = "24">{{ tarefa.descricao }}</textarea>
+            <br>
+
+            <button type = "submit" size = "15 px">Salvar</button>
+
+    </form>
+
+    <a href = '/'>
+        <button type = "submit" size = "15 px">Cancelar</button>
+    </a>
+
+    </body>
+</html>

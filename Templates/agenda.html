@@ -1,0 +1,33 @@
+
+
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>Agenda</title>
+    </head>
+
+    <body>
+        <div align = 'right'>
+            <a href = "/logout/">Logout</a>
+        </div>
+
+        <h2>Agendamentos</h2>
+
+        <a href = 'tarefa/'>
+            <button>Registrar Tarefa</button>
+        </a>
+        <ul style = "font-size:18px">
+            {% for tarefa in Tarefas %}    
+                <li>
+                    <div style = {% if tarefa.dia_tarefa %}
+                                    'color:red'
+                                    {% endif %}>
+                        {{tarefa.titulo}} - {{tarefa.format_data}} 
+                        (<a href = 'tarefa/?id= {{ tarefa.id }}'>Editar</a>/
+                        <a href = 'tarefa/delete/{{ tarefa.id }}/'>Excluir</a>)
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+    </body>
+</html>
